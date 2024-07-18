@@ -12,8 +12,11 @@ import {
   Text,
   Image,
   Divider,
+  Group,
+  rem,
 } from '@mantine/core';
 import { useCartStore } from '@/stores/cartStore';
+import { IconExclamationCircle } from '@tabler/icons-react';
 
 const checkoutSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters long'),
@@ -26,7 +29,6 @@ const checkoutSchema = z.object({
 const CheckoutPage = () => {
   const { cart, clearCart } = useCartStore();
   const form = useForm({
-    schema: zodResolver(checkoutSchema),
     initialValues: {
       name: '',
       address: '',
@@ -34,6 +36,7 @@ const CheckoutPage = () => {
       postalCode: '',
       country: '',
     },
+    validate: zodResolver(checkoutSchema),
   });
 
   const handleSubmit = (values: typeof form.values) => {
@@ -47,7 +50,7 @@ const CheckoutPage = () => {
       <Title order={2} mb={20}>
         Checkout
       </Title>
-      <Flex gap={200} justify="center">
+      <Flex gap={100} justify="center">
         <Box mb={30}>
           <Title order={3} mb={10}>
             Items in your cart
@@ -82,40 +85,90 @@ const CheckoutPage = () => {
         </Box>
         <Box mb={30}>
           <Container>
-            <form className='checkout-form' onSubmit={form.onSubmit(handleSubmit)}>
+            <form className="checkout-form" onSubmit={form.onSubmit(handleSubmit)}>
               <TextInput
+                mt="md"
                 label="Name"
                 placeholder="Your name"
                 {...form.getInputProps('name')}
-                mb={10}
+                withErrorStyles={false}
+                rightSectionPointerEvents="none"
+                rightSection={
+                  form.errors.name ? (
+                    <IconExclamationCircle
+                      style={{ width: rem(20), height: rem(20) }}
+                      color="var(--mantine-color-error)"
+                    />
+                  ) : null
+                }
               />
               <TextInput
+                mt="md"
                 label="Address"
                 placeholder="Your address"
                 {...form.getInputProps('address')}
-                mb={10}
+                withErrorStyles={false}
+                rightSectionPointerEvents="none"
+                rightSection={
+                  form.errors.address ? (
+                    <IconExclamationCircle
+                      style={{ width: rem(20), height: rem(20) }}
+                      color="var(--mantine-color-error)"
+                    />
+                  ) : null
+                }
               />
               <TextInput
+                mt="md"
                 label="City"
                 placeholder="Your city"
                 {...form.getInputProps('city')}
-                mb={10}
+                withErrorStyles={false}
+                rightSectionPointerEvents="none"
+                rightSection={
+                  form.errors.city ? (
+                    <IconExclamationCircle
+                      style={{ width: rem(20), height: rem(20) }}
+                      color="var(--mantine-color-error)"
+                    />
+                  ) : null
+                }
               />
               <TextInput
+                mt="md"
                 label="Postal Code"
                 placeholder="Your postal code"
                 {...form.getInputProps('postalCode')}
-                mb={10}
+                withErrorStyles={false}
+                rightSectionPointerEvents="none"
+                rightSection={
+                  form.errors.postalCode ? (
+                    <IconExclamationCircle
+                      style={{ width: rem(20), height: rem(20) }}
+                      color="var(--mantine-color-error)"
+                    />
+                  ) : null
+                }
               />
               <TextInput
+                mt="md"
                 label="Country"
                 placeholder="Your country"
                 {...form.getInputProps('country')}
-                mb={10}
+                withErrorStyles={false}
+                rightSectionPointerEvents="none"
+                rightSection={
+                  form.errors.country ? (
+                    <IconExclamationCircle
+                      style={{ width: rem(20), height: rem(20) }}
+                      color="var(--mantine-color-error)"
+                    />
+                  ) : null
+                }
               />
-              <Button type="submit" mt={20}>
-                Place Order
-              </Button>
+              <Group position="center" mt={20}>
+                <Button type="submit">Place Order</Button>
+              </Group>
             </form>
           </Container>
         </Box>
