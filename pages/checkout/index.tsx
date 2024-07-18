@@ -14,6 +14,7 @@ import {
   Divider,
   Group,
   rem,
+  Grid,
 } from '@mantine/core';
 import { useCartStore } from '@/stores/cartStore';
 import { IconExclamationCircle } from '@tabler/icons-react';
@@ -50,8 +51,8 @@ const CheckoutPage = () => {
       <Title order={2} mb={20}>
         Checkout
       </Title>
-      <Flex gap={100} justify="center">
-        <Box mb={30}>
+      <Grid mb={60}>
+        <Grid.Col span={{ base: 12, sm: 6, md: 6, lg: 6 }}>
           <Title order={3} mb={10}>
             Items in your cart
           </Title>
@@ -82,10 +83,14 @@ const CheckoutPage = () => {
               </Box>
             ))
           )}
-        </Box>
-        <Box mb={30}>
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, sm: 6, md: 6, lg: 6 }}>
           <Container>
-            <form className="checkout-form" onSubmit={form.onSubmit(handleSubmit)}>
+            <form
+              style={{ width: '320px' }}
+              className="checkout-form"
+              onSubmit={form.onSubmit(handleSubmit)}
+            >
               <TextInput
                 mt="md"
                 label="Name"
@@ -171,8 +176,8 @@ const CheckoutPage = () => {
               </Group>
             </form>
           </Container>
-        </Box>
-      </Flex>
+        </Grid.Col>
+      </Grid>
     </Container>
   );
 };
