@@ -45,7 +45,7 @@ const BookFilter = () => {
   };
 
   const filteredBooks = booksData
-    .filter((book) => {
+    .filter((book: any) => {
       const matchesSearchText =
         searchText.trim() === '' ||
         book.title.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -58,7 +58,7 @@ const BookFilter = () => {
 
       return matchesSearchText && matchesCategory && matchesPrice;
     })
-    .sort((a, b) => {
+    .sort((a: any, b: any) => {
       if (!sortCriteria) return 0;
       if (sortCriteria === 'title') return a.title.localeCompare(b.title);
       if (sortCriteria === 'author') return a.author.localeCompare(b.author);
@@ -88,6 +88,7 @@ const BookFilter = () => {
       />
       <Group mb={20} style={{ justifyContent: 'center' }}>
         <Select
+          label="Sort by"
           data={['title', 'author', 'price']}
           value={sortCriteria}
           onChange={handleSortChange}
@@ -116,7 +117,7 @@ const BookFilter = () => {
               { value: 100, label: '$100' },
             ]}
           />
-          <Text mt="lg" size="sm" >
+          <Text mt="lg" size="sm">
             Price range: <b>{`$0 - $${priceRange}`}</b>
           </Text>
         </Box>

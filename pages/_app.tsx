@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import { theme } from '../theme';
 import './styles.css';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/NavBar';
 
 
 export default function App({ Component, pageProps }: AppProps) {

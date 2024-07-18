@@ -44,6 +44,7 @@
     color: aliceblue;
     border-right: 1px solid rgb(81, 44, 203);
     padding-right: 20px;
+    margin-top: 5px;
 }
 
 .nav-link:hover {
@@ -86,3 +87,16 @@
     display: inline-block;
     animation: popup-animation 2s infinite;
 }
+
+
+@media (max-width: 768px) {
+    .searchInput {
+        width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .titleDiv {
+      font-size: 15px;
+    }
+  }

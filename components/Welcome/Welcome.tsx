@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import books from '@/data/books';
 
 export function Welcome() {
-  const [bookData, setBooks] = useState(books);
+  const [bookData, setBooks] = useState<any>(books);
   const [loading, setLoading] = useState(true);
 
   return (

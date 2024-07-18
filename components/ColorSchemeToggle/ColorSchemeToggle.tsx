@@ -1,6 +1,7 @@
 import { Button, Container, Group, useMantineColorScheme } from '@mantine/core';
 import { IoMoonOutline, IoSunnyOutline, IoCloudOutline } from 'react-icons/io5';
 import { FaShoppingCart } from "react-icons/fa";
+import Link from 'next/link';
 
 export function ColorSchemeToggle() {
   const { setColorScheme } = useMantineColorScheme();
@@ -35,8 +36,8 @@ export function ColorSchemeToggle() {
           <IoCloudOutline />
         </Button>
         <Button
-          variant="link"
-          onClick={() => setColorScheme('auto')}
+          component={Link}
+          href="/cart"
           style={{ padding: '0' }} 
           bg="none"
           className='nav-btn'
