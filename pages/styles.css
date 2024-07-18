@@ -1,0 +1,69 @@
+.card {
+    background-color: transparent;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-section {
+    position: relative;
+    overflow: hidden;
+    /* Ensures the image doesn't overflow the section */
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.9s;
+}
+
+.card-section:hover .image {
+    transform: scale(1.4);
+    /* Adjust the scale as needed */
+}
+
+.add-to-cart {
+    opacity: 0;
+    transform: translateY(5rem);
+    transition: opacity 0.3s, transform 0.3s;
+    /* Added transform transition */
+}
+
+.card:hover .add-to-cart {
+    opacity: 1;
+    transform: translateY(-0.1rem);
+    /* Adjust the translateY value as needed */
+}
+
+.nav-link{
+    text-decoration: none !important;
+    transition: transform 0.9s;
+}
+
+.nav-link:hover{
+    color: aliceblue;
+    font-weight: 400;
+    transform: scale(1.02);
+}
+
+@keyframes popup-animation {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+    /* stylelint-disable-next-line rule-empty-line-before */
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .title-popup {
+    display: inline-block;
+    animation: popup-animation 2s infinite;
+  }

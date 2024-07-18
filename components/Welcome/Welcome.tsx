@@ -1,23 +1,31 @@
-import { Title, Text, Anchor } from '@mantine/core';
+import { Title, Text, Anchor, Container, Flex } from '@mantine/core';
 import classes from './Welcome.module.css';
+import { BookList } from '../BookList';
+import { useEffect, useState } from 'react';
+import books from '@/data/books';
+import Navbar from '../Navbar';
 
 export function Welcome() {
+  const [bookData, setBooks] = useState(books);
+  const [loading, setLoading] = useState(true);
+
   return (
     <>
-      <Title className={classes.title} ta="center" mt={100}>
-        Welcome to{' '}
-        <Text inherit variant="gradient" component="span" gradient={{ from: 'pink', to: 'yellow' }}>
-          Mantine
-        </Text>
-      </Title>
-      <Text color="dimmed" ta="center" size="lg" maw={580} mx="auto" mt="xl">
-        This starter Next.js project includes a minimal setup for server side rendering, if you want
-        to learn more on Mantine + Next.js integration follow{' '}
-        <Anchor href="https://mantine.dev/guides/next/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit index.tsx file.
-      </Text>
+       <Navbar /> {/* Add the custom navbar component here */}
+
+      <Flex justify="center" mih={200} bg="rgb(249, 247, 243)" align="center" mt={60}>
+        <Title className={`${classes.title} ${'title-popup'}`} ta="center">
+          <Text
+            inherit
+            variant="gradient"
+            component="span"
+            gradient={{ from: 'red', to: 'yellow' }}
+          >
+            NEW ARRIVALS
+          </Text>
+        </Title>
+      </Flex>
+      <BookList books={bookData} />
     </>
   );
 }
