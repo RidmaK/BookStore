@@ -1,12 +1,19 @@
 import { Card, Image, Text, Button, Group } from '@mantine/core';
 import { Book as BookType } from '../types';
 import Link from 'next/link';
+import { useCartStore } from '@/stores/cartStore';
 
 interface BookProps {
   book: BookType;
 }
 
 export function Book({ book }: BookProps) {
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart({ ...book, quantity: 1 });
+  };
+
   return (
     <Card padding="lg" bg="none" className="card">
       <Card.Section className="card-section">
@@ -31,6 +38,7 @@ export function Book({ book }: BookProps) {
           color="blue"
           style={{ marginTop: 14 }}
           className="add-to-cart"
+          onClick={handleAddToCart}
         >
           Add to Cart
         </Button>

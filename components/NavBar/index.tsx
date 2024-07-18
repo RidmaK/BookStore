@@ -22,11 +22,13 @@ const Navbar: React.FC = () => {
         style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100 }}
       >
         <Box>
-          <Title order={4} onClick={() => console.log('Clicked Logo')}>
-            <Text color="white" size="xl">
-              Book Store
-            </Text>
-          </Title>
+          <Link href="/" className={styles.navLink}>
+            <Title order={4}>
+              <Text color="white" size="xl">
+                Book Store
+              </Text>
+            </Title>
+          </Link>
         </Box>
         <Box className={styles.navItems}>
           <Flex gap={20} className={styles.desktopNav}>

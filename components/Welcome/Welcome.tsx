@@ -1,8 +1,9 @@
-import { Title, Text, Anchor, Container, Flex } from '@mantine/core';
+import { Title, Text, Anchor, Container, Flex, Button } from '@mantine/core';
 import classes from './Welcome.module.css';
 import { BookList } from '../BookList';
 import { useEffect, useState } from 'react';
 import books from '@/data/books';
+import Link from 'next/link';
 
 export function Welcome() {
   const [bookData, setBooks] = useState<any>(books);
@@ -10,7 +11,7 @@ export function Welcome() {
 
   return (
     <>
-      <Flex justify="center" mih={200} bg="rgb(249, 247, 243)" align="center" mt={60}>
+      <Flex justify="center" mih={200} bg="rgb(249, 247, 243)" align="center" direction="column" mt={60}>
         <Title className={`${classes.title} ${'title-popup'}`} ta="center">
           <Text
             inherit
@@ -21,6 +22,7 @@ export function Welcome() {
             NEW ARRIVALS
           </Text>
         </Title>
+        <Button component={Link} href="/filter" className='buy-me' variant="filled" color="violet">Buy Me</Button>
       </Flex>
       <BookList books={bookData} />
     </>

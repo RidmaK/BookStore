@@ -1,19 +1,16 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Button, Container, Box, Image, NumberInput, Text, Title, Flex, Center } from '@mantine/core';
+import { Button, Container, Box, Image, NumberInput, Text, Title, Flex } from '@mantine/core';
 import books from '@/data/books';
 import { Book as BookType } from '@/types';
-
-interface CartItem extends BookType {
-  quantity: number;
-}
+import { useCartStore } from '@/stores/cartStore';
 
 const SingleBookPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [book, setBook] = useState<BookType | null>(null);
   const [quantity, setQuantity] = useState<number>(1);
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
     if (id) {
@@ -22,17 +19,9 @@ const SingleBookPage = () => {
     }
   }, [id]);
 
-  const addToCart = () => {
+  const handleAddToCart = () => {
     if (book) {
-      setCart((prevCart) => {
-        const existingItem = prevCart.find((item) => item.id === book.id);
-        if (existingItem) {
-          return prevCart.map((item) =>
-            item.id === book.id ? { ...item, quantity: item.quantity + quantity } : item
-          );
-        }
-        return [...prevCart, { ...book, quantity }];
-      });
+      addToCart({ ...book, quantity });
     }
   };
 
@@ -48,7 +37,6 @@ const SingleBookPage = () => {
     <Container size="xxxx" mt={100}>
       <Flex align="center" justify="center" gap={40}>
         <Box>
-          {' '}
           <Image src={book.cover} alt={book.title} width={300} height={400} mb={20} />
         </Box>
         <Box>
@@ -72,7 +60,7 @@ const SingleBookPage = () => {
             step={1}
             label="Quantity"
           />
-          <Button mt={20} onClick={addToCart}>
+          <Button mt={20} onClick={handleAddToCart}>
             Add to Cart
           </Button>
         </Box>
