@@ -38,32 +38,51 @@
     /* Adjust the translateY value as needed */
 }
 
-.nav-link{
+.nav-link {
     text-decoration: none !important;
     transition: transform 0.9s;
+    color: aliceblue;
+    border-right: 1px solid rgb(81, 44, 203);
+    padding-right: 20px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: aliceblue;
     font-weight: 400;
     transform: scale(1.02);
 }
 
+.nav-btn {
+    font-size: 16px;
+}
+
+.searchInput {
+    width: 60%;
+    margin-top: 16px;
+    margin-bottom: 60px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 @keyframes popup-animation {
     0% {
-      transform: scale(1);
+        transform: scale(1);
     }
 
     50% {
-      transform: scale(1.1);
+        transform: scale(1.1);
     }
+
     /* stylelint-disable-next-line rule-empty-line-before */
     100% {
-      transform: scale(1);
+        transform: scale(1);
     }
-  }
-  
-  .title-popup {
+}
+
+.title-popup {
     display: inline-block;
     animation: popup-animation 2s infinite;
-  }
+}

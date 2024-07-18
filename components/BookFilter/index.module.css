@@ -1,0 +1,55 @@
+.mainDiv {
+  width: 100%;
+  padding: 20px 50px;
+}
+.innerDiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.descDiv {
+  width: 100%;
+  height: 100%;
+}
+.titleDiv {
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  color: var(--offers-text-color);
+}
+.description {
+  width: 100%;
+  height: auto;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  text-align: center;
+}
+.description a {
+  font-weight: 400;
+  text-decoration: underline;
+  color: var(--primary-btn-background-color);
+}
+.description a:hover {
+  color: var(--primary-btn-hover-background-color);
+}
+@media (max-width: 768px) {
+  .description {
+    font-size: 14px;
+  }
+}
+@media (max-width: 576px) {
+  .titleDiv {
+    font-size: 15px;
+  }
+}

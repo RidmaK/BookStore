@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import { theme } from '../theme';
 import './styles.css';
+import Navbar from '@/components/Navbar';
 
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
+      <Navbar /> 
       <Component {...pageProps} />
     </MantineProvider>
   );

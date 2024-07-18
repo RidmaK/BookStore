@@ -2,7 +2,7 @@ import { Container, Grid, Flex, TextInput, Pagination, Center } from '@mantine/c
 import { Book as BookType } from '../types';
 import { Book } from './Book';
 import { useState } from 'react';
-import { RiEmotionUnhappyLine } from 'react-icons/ri'; 
+import { RiEmotionUnhappyLine } from 'react-icons/ri';
 
 interface BookProps {
   books: BookType;
@@ -38,13 +38,24 @@ export function BookList({ books }: BookProps) {
 
   return (
     <Container size="xxxx" mt={60} mb={60}>
-      <TextInput
-        placeholder="Enter search text"
-        value={searchText}
-        onChange={handleSearchTextChange}
-        style={{ marginTop: 16, marginBottom: 60, border: '1px solid #ccc', borderRadius: '4px', padding: '10px' }}
-        mb={60}
-      />
+      <Flex justify="center" align="center">
+        <TextInput
+          placeholder="Enter search text"
+          value={searchText}
+          onChange={handleSearchTextChange}
+          style={{
+            marginTop: 16,
+            marginBottom: 60,
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+            padding: '10px',
+            fontSize: '26px'
+          }}
+          fw={900}
+          mb={60}
+          className="searchInput"
+        />
+      </Flex>
       {filteredBooks.length === 0 ? (
         <Center style={{ minHeight: '200px' }}>
           <RiEmotionUnhappyLine size={48} />

@@ -3,7 +3,6 @@ import classes from './Welcome.module.css';
 import { BookList } from '../BookList';
 import { useEffect, useState } from 'react';
 import books from '@/data/books';
-import Navbar from '../Navbar';
 
 export function Welcome() {
   const [bookData, setBooks] = useState(books);
@@ -11,8 +10,6 @@ export function Welcome() {
 
   return (
     <>
-       <Navbar /> {/* Add the custom navbar component here */}
-
       <Flex justify="center" mih={200} bg="rgb(249, 247, 243)" align="center" mt={60}>
         <Title className={`${classes.title} ${'title-popup'}`} ta="center">
           <Text

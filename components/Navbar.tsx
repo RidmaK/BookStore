@@ -18,15 +18,18 @@ const Navbar: React.FC<NavbarProps> = () => {
     >
       <Box>
         <Title order={4} onClick={() => console.log('Clicked Logo')}>
-          <Text color="blue" size="xl">
+          <Text color="white" size="xl">
             Book Store
           </Text>
         </Title>
       </Box>
       <Box>
         <Flex gap={20}>
-          <Anchor href="#" mt={5} className='nav-link' onClick={() => console.log('Clicked Home')}>
+          <Anchor href="/" mt={5} className='nav-link' onClick={() => console.log('Clicked Home')}>
             Home
+          </Anchor>
+          <Anchor href="/filter" mt={5} className='nav-link'>
+            Books
           </Anchor>
           <Anchor href="#new-arrivals" mt={5} className='nav-link' onClick={() => console.log('Clicked New Arrivals')}>
             New Arrivals
