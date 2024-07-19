@@ -6,7 +6,6 @@ import { theme } from '../theme';
 import './styles.css';
 import Navbar from '@/components/NavBar';
 
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MantineProvider theme={theme}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, zodResolver } from '@mantine/form';
 import { z } from 'zod';
 import {
@@ -14,20 +14,39 @@ import {
   Group,
   rem,
   Grid,
+  LoadingOverlay,
 } from '@mantine/core';
 import { useCartStore } from '@/stores/cartStore';
 import { IconExclamationCircle } from '@tabler/icons-react';
+import { useRouter } from 'next/router';
 
 const checkoutSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters long'),
-  address: z.string().min(5, 'Address must be at least 5 characters long'),
-  city: z.string().min(2, 'City must be at least 2 characters long'),
-  postalCode: z.string().min(4, 'Postal code must be at least 4 characters long'),
-  country: z.string().min(2, 'Country must be at least 2 characters long'),
+  name: z
+    .string()
+    .min(2, { message: 'Name must be at least 2 characters long' })
+    .nonempty('Name is required'),
+  address: z
+    .string()
+    .min(5, { message: 'Address must be at least 5 characters long' })
+    .nonempty('Address is required'),
+  city: z
+    .string()
+    .min(2, { message: 'City must be at least 2 characters long' })
+    .nonempty('City is required'),
+  postalCode: z
+    .string()
+    .min(4, { message: 'Postal code must be at least 4 characters long' })
+    .nonempty('Postal code is required'),
+  country: z
+    .string()
+    .min(2, { message: 'Country must be at least 2 characters long' })
+    .nonempty('Country is required'),
 });
 
 const CheckoutPage = () => {
+  const router = useRouter();
   const { cart, clearCart } = useCartStore();
+  const [visible, setVisible] = useState(false);
   const form = useForm({
     initialValues: {
       name: '',
@@ -40,13 +59,24 @@ const CheckoutPage = () => {
   });
 
   const handleSubmit = (values: typeof form.values) => {
-    // Handle the form submission
-    console.log('Order submitted', values);
-    clearCart();
+    setVisible(true); 
+    try {
+      setTimeout(() => {
+        clearCart(); 
+        router.push('/'); 
+      }, 2000);
+    } catch (error) {
+      console.error('Order submission failed', error);
+    } finally {
+      setTimeout(() => {
+        setVisible(false); 
+      }, 2000); 
+    }
   };
 
   return (
     <Container size="xxxx" mt={100}>
+      <LoadingOverlay visible={visible} overlayProps={{ radius: "sm", blur: 2 }} />
       <Title order={2} mb={20}>
         Checkout
       </Title>

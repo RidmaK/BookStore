@@ -38,7 +38,7 @@ export function BookList() {
     <Container size="xxxx" mt={60} mb={60}>
       <Flex justify="center" align="center">
         <TextInput
-          placeholder="Enter search text"
+          placeholder="Search Here........."
           value={searchText}
           onChange={handleSearchTextChange}
           style={{

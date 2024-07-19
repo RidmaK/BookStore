@@ -81,7 +81,7 @@ const BookFilter = () => {
   return (
     <Container size="xxxx" mt={100} mb={60}>
       <TextInput
-        placeholder="Enter search text"
+        placeholder="Search Here....."
         value={searchText}
         onChange={handleSearchTextChange}
         style={{ width: '60%', margin: '0 auto 20px auto' }}
