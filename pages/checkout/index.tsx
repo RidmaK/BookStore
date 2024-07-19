@@ -80,7 +80,7 @@ const CheckoutPage = () => {
       <Title order={2} mb={20}>
         Checkout
       </Title>
-      <Grid mb={60}>
+      <Grid mb={100}>
         <Grid.Col span={{ base: 12, sm: 12, md: 6, lg: 6 }}>
           <Title order={3} mb={10}>
             Items in your cart
