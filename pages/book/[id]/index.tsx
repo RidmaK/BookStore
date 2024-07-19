@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Button, Container, Box, Image, NumberInput, Text, Title, Flex } from '@mantine/core';
 import books from '@/data/books';
-import { Book as BookType } from '@/types';
+import { BookType } from '@/types';
 import { useCartStore } from '@/stores/cartStore';
 
 const SingleBookPage = () => {
@@ -25,8 +25,10 @@ const SingleBookPage = () => {
     }
   };
 
-  const handleQuantityChange = (value: number) => {
-    setQuantity(value);
+  const handleQuantityChange = (value: string | number) => {
+    if (typeof value === 'number') {
+      setQuantity(value);
+    }
   };
 
   if (!book) {

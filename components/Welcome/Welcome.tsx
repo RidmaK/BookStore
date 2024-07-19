@@ -1,12 +1,10 @@
 import { Title, Text, Anchor, Container, Flex, Button } from '@mantine/core';
 import classes from './Welcome.module.css';
 import { BookList } from '../BookList';
-import { useEffect, useState } from 'react';
-import books from '@/data/books';
+import { useState } from 'react';
 import Link from 'next/link';
 
 export function Welcome() {
-  const [bookData, setBooks] = useState<any>(books);
   const [loading, setLoading] = useState(true);
 
   return (
@@ -24,7 +22,7 @@ export function Welcome() {
         </Title>
         <Button component={Link} href="/filter" className='buy-me' variant="filled" color="violet">Buy Me</Button>
       </Flex>
-      <BookList books={bookData} />
+      <BookList />
     </>
   );
 }

@@ -94,7 +94,7 @@ const BookFilter = () => {
           onChange={handleSortChange}
           placeholder="Sort by"
         />
-        <Group direction="column" spacing="xs">
+        <Group>
           {uniqueCategories.map((category: any) => (
             <Checkbox
               key={category}
@@ -132,7 +132,7 @@ const BookFilter = () => {
       <Flex justify="center" align="center">
         <Pagination
           total={totalPages}
-          page={currentPage}
+          value={currentPage}
           onChange={handlePageChange}
           withControls
           size="lg"

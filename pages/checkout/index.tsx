@@ -1,4 +1,3 @@
-// pages/checkout.tsx
 import React from 'react';
 import { useForm, zodResolver } from '@mantine/form';
 import { z } from 'zod';
@@ -171,7 +170,7 @@ const CheckoutPage = () => {
                   ) : null
                 }
               />
-              <Group position="center" mt={20}>
+              <Group mt={20}>
                 <Button type="submit">Place Order</Button>
               </Group>
             </form>

@@ -1,5 +1,5 @@
 import { Card, Image, Text, Button, Group } from '@mantine/core';
-import { Book as BookType } from '../types';
+import { BookType } from '../types';
 import Link from 'next/link';
 import { useCartStore } from '@/stores/cartStore';
 

@@ -1,6 +1,6 @@
-import { Book } from '@/types';
+import { BookType } from '@/types';
 
-const books: Book[] = [
+const books: BookType[] = [
   {
     id: 1,
     title: 'All This & More',

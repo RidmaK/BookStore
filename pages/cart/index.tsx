@@ -1,4 +1,3 @@
-// pages/cart.tsx
 import React from 'react';
 import { Container, Table, Button, NumberInput, Text, Title, Flex } from '@mantine/core';
 import { useCartStore } from '@/stores/cartStore';
