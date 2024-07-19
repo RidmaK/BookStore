@@ -81,7 +81,7 @@ const CheckoutPage = () => {
         Checkout
       </Title>
       <Grid mb={60}>
-        <Grid.Col span={{ base: 12, sm: 6, md: 6, lg: 6 }}>
+        <Grid.Col span={{ base: 12, sm: 12, md: 6, lg: 6 }}>
           <Title order={3} mb={10}>
             Items in your cart
           </Title>
@@ -113,10 +113,10 @@ const CheckoutPage = () => {
             ))
           )}
         </Grid.Col>
-        <Grid.Col span={{ base: 12, sm: 6, md: 6, lg: 6 }}>
+        <Grid.Col span={{ base: 12, sm: 12, md: 6, lg: 6 }}>
           <Container>
             <form
-              style={{ width: '320px' }}
+              style={{ width: '300px' }}
               className="checkout-form"
               onSubmit={form.onSubmit(handleSubmit)}
             >
